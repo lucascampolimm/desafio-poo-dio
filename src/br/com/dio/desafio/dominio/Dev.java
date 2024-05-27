@@ -1,6 +1,10 @@
 package br.com.dio.desafio.dominio;
 
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.Iterator;
 
 public class Dev {
     private String nome;
@@ -30,13 +34,7 @@ public class Dev {
             soma += next;
         }
         return soma;
-
-        /*return this.conteudosConcluidos
-                .stream()
-                .mapToDouble(Conteudo::calcularXp)
-                .sum();*/
     }
-
 
     public String getNome() {
         return nome;
@@ -67,7 +65,9 @@ public class Dev {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dev dev = (Dev) o;
-        return Objects.equals(nome, dev.nome) && Objects.equals(conteudosInscritos, dev.conteudosInscritos) && Objects.equals(conteudosConcluidos, dev.conteudosConcluidos);
+        return Objects.equals(nome, dev.nome) &&
+               Objects.equals(conteudosInscritos, dev.conteudosInscritos) &&
+               Objects.equals(conteudosConcluidos, dev.conteudosConcluidos);
     }
 
     @Override
