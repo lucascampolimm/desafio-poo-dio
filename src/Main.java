@@ -4,6 +4,8 @@ import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,7 +43,7 @@ public class Main {
         System.out.println("Conteúdos Concluídos: " + devCamila.getConteudosConcluidos());
         System.out.println("XP Total: " + devCamila.calcularTotalXp());
 
-        System.out.println("-------");
+        System.out.println("\n-------\n");
 
         Dev devJoao = new Dev();
         devJoao.setNome("Joao");
@@ -56,5 +58,20 @@ public class Main {
         System.out.println("Conteúdos Concluídos: " + devJoao.getConteudosConcluidos());
         System.out.println("XP Total: " + devJoao.calcularTotalXp());
 
+        Set<Dev> desenvolvedores = new HashSet<>();
+        desenvolvedores.add(devCamila);
+        desenvolvedores.add(devJoao);
+
+        int totalDesenvolvedores = Dev.calcularTotalDesenvolvedores(desenvolvedores);
+        int totalConteudosInscritos = Dev.calcularTotalConteudosInscritos(desenvolvedores);
+        int totalConteudosConcluidos = Dev.calcularTotalConteudosConcluidos(desenvolvedores);
+        double xpTotalBootcamp = Dev.calcularXPTotalBootcamp(desenvolvedores);
+
+        System.out.println("\n------- Resumo do Bootcamp -------");
+        System.out.println("Total de Desenvolvedores: " + totalDesenvolvedores);
+        System.out.println("Total de Conteúdos Inscritos: " + totalConteudosInscritos);
+        System.out.println("Total de Conteúdos Concluídos: " + totalConteudosConcluidos);
+        System.out.println("XP Total do Bootcamp: " + xpTotalBootcamp);
+        System.out.println("----------------------------------");
     }
 }

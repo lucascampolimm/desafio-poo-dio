@@ -36,6 +36,34 @@ public class Dev {
         return soma;
     }
 
+    public static int calcularTotalDesenvolvedores(Set<Dev> desenvolvedores) {
+        return desenvolvedores.size();
+    }
+
+    public static int calcularTotalConteudosInscritos(Set<Dev> desenvolvedores) {
+        int totalConteudosInscritos = 0;
+        for (Dev dev : desenvolvedores) {
+            totalConteudosInscritos += dev.getConteudosInscritos().size();
+        }
+        return totalConteudosInscritos;
+    }
+
+    public static int calcularTotalConteudosConcluidos(Set<Dev> desenvolvedores) {
+        int totalConteudosConcluidos = 0;
+        for (Dev dev : desenvolvedores) {
+            totalConteudosConcluidos += dev.getConteudosConcluidos().size();
+        }
+        return totalConteudosConcluidos;
+    }
+
+    public static double calcularXPTotalBootcamp(Set<Dev> desenvolvedores) {
+        double xpTotalBootcamp = 0;
+        for (Dev dev : desenvolvedores) {
+            xpTotalBootcamp += dev.calcularTotalXp();
+        }
+        return xpTotalBootcamp;
+    }
+
     public String getNome() {
         return nome;
     }
